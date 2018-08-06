@@ -28,5 +28,7 @@
 * **youcompleteme:** ([link](https://github.com/valloric/youcompleteme)) code completion engine
     * **Note**: for javascript complete is [tern](http://ternjs.net/) base
     * **Note**: make sure to read javascript specific instructions for setup [link](https://github.com/valloric/youcompleteme#javascript-semantic-completion)
-
-
+* **vim-devicons** ([link](https://github.com/ryanoasis/vim-devicons)) display icons depending on file type
+    * **Note**: Need to install nerd fonts ([link](https://github.com/ryanoasis/nerd-fonts))
+* **vim-css-color**: ([link](https://github.com/ap/vim-css-color)) display css colors inline
+* **comfortable-motion**: ([link](https://github.com/yuttie/comfortable-motion.vim)) smooth scrolling through files
