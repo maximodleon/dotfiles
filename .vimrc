@@ -1,9 +1,47 @@
 " --------------
+" vim-plug config
+call plug#begin('~/.vim/bundle')
+" themes
+Plug 'tomasr/molokai'
+Plug 'sts10/vim-pink-moon'
+Plug 'alvarocz/vim-fresh'
+Plug 'baines/vim-colorscheme-thaumaturge'
+Plug 'roosta/srcery'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'exitface/synthwave.vim'
+Plug 'alessandroyorba/arcadia'
+Plug 'dylanaraps/crayon'
+" end themes
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'mattn/emmet-vim'
+Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'kannokanno/previm'
+Plug 'unblevable/quick-scope'
+Plug 'godlygeek/tabular'
+Plug 'sirver/ultisnips'
+Plug 'tpope/vim-fugitive'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'plasticboy/vim-markdown'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'honza/vim-snippets'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-surround'
+Plug 'janko-m/vim-test'
+Plug 'valloric/youcompleteme', {'do': './install.py --tern-completer'}
+Plug 'ryanoasis/vim-devicons' 
+Plug 'ap/vim-css-color'
+Plug 'yuttie/comfortable-motion.vim'
+call plug#end()
 " Basic settings
 " --------------
 execute pathogen#infect()
 syntax enable " enable syntax processing
-colorscheme molokai
+colorscheme thaumaturge
 filetype plugin on
 " filetype indent on " load filetype-specific indent files
 let mapleader=","

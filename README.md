@@ -1,8 +1,16 @@
 # DOTFILES
 
 
-## vim
-### plugins
+## Vim
+### Font
+Terminal o gui font should be set to a nerd font for filetype icons to display correctly.
+Preferred font is [Space Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SpaceMono)
+### Plugins installation
+#### Using vim-plug
+1. Copy the `.vimrc` file to you home directory.
+2. Install the plugin manager vim-plug ([link](https://github.com/maximodleon/dotfiles))
+3. Open vim and run `:PlugInstall` 
+#### Plugins list
 * **ale:** ([link](https://github.com/w0rp/ale)) asynchronous linter
 * **vim-airline:** ([link](https://github.com/vim-airline/vim-airline)) status line
     * **Note**: Need to install powerline fonts to support nice status bar display
