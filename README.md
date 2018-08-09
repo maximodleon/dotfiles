@@ -1,5 +1,7 @@
 # DOTFILES
-** i3wm
+
+## i3wm
+
 * Install i3wm for your system ([link](https://i3wm.org/))
 * Instlal polybar following the documentation from the repo ([link](https://github.com/jaagr/polybar))
 * Copy `.config/polybar` and `.config/i3` to your `~/.config`
