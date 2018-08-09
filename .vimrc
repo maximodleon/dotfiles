@@ -42,7 +42,7 @@ call plug#end()
 " --------------
 execute pathogen#infect()
 syntax enable " enable syntax processing
-colorscheme thaumaturge
+colorscheme molokai_pro
 filetype plugin on
 " filetype indent on " load filetype-specific indent files
 let mapleader=","
