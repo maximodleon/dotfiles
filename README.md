@@ -2,10 +2,11 @@
 
 
 ## Vim
+Default theme is i[molokai_pro](https://github.com/phanviet/vim-monokai-pro)
 ### Font
 Terminal o gui font should be set to a nerd font for filetype icons to display correctly.
 Preferred font is [Space Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SpaceMono)
-### Plugins installation
+### Plugins and themes installation
 #### Using vim-plug
 1. Copy the `.vimrc` file to you home directory.
 2. Install the plugin manager vim-plug ([link](https://github.com/maximodleon/dotfiles))
