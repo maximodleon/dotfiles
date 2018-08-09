@@ -11,6 +11,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'exitface/synthwave.vim'
 Plug 'alessandroyorba/arcadia'
 Plug 'dylanaraps/crayon'
+Plug 'phanviet/vim-monokai-pro'
 " end themes
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
