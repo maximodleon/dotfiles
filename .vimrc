@@ -72,7 +72,7 @@ nnoremap <space> za " folding
 nnoremap <leader><space> :nohlsearch<CR> " set search highlighting off
 " nnoremap j gj " cursor movement
 " nnoremap k gk " cursor movement
-nnoremap <leader>nt :NERDTreeToggle<CR> " toggle nerdtree explorer
+nnoremap <F2> :NERDTreeToggle<CR> " toggle nerdtree explorer
 " map split window movement
 nnoremap <leader>fwl <C-w>h " focus window on the left
 nnoremap <leader>fwb <C-w>j " focus window below  
@@ -105,6 +105,7 @@ let g_airline_detect_spell=0
 let g:airline_skip_empty_sections=1
 let g:airline_section_x=''
 let g:airline_section_c = airline#section#create(['%f'])
+let g:ycm_autoclose_preview_window_after_insertion=1
 
 " vim-markdown (https://github.com/plasticboy/vim-markdown)
 set conceallevel=2
