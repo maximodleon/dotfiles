@@ -53,3 +53,4 @@ Preferred font is [Space Mono](https://github.com/ryanoasis/nerd-fonts/tree/mast
     * **Note**: Need to install nerd fonts ([link](https://github.com/ryanoasis/nerd-fonts))
 * **vim-css-color**: ([link](https://github.com/ap/vim-css-color)) display css colors inline
 * **comfortable-motion**: ([link](https://github.com/yuttie/comfortable-motion.vim)) smooth scrolling through files
+* **ctrlp.vim**: ([link](https://github.com/ctrlpvim/ctrlp.vim)) Fuzzy finder for vim
