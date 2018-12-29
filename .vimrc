@@ -36,7 +36,7 @@ Plug 'valloric/youcompleteme', {'do': './install.py --tern-completer'}
 Plug 'ryanoasis/vim-devicons' 
 Plug 'ap/vim-css-color'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " --------------
