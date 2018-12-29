@@ -1,4 +1,3 @@
-" --------------
 " vim-plug config
 call plug#begin('~/.vim/bundle')
 " themes
@@ -11,6 +10,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'exitface/synthwave.vim'
 Plug 'alessandroyorba/arcadia'
 Plug 'dylanaraps/crayon'
+Plug 'phanviet/vim-monokai-pro'
 " end themes
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
@@ -36,21 +36,22 @@ Plug 'valloric/youcompleteme', {'do': './install.py --tern-completer'}
 Plug 'ryanoasis/vim-devicons' 
 Plug 'ap/vim-css-color'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'kien/ctrlp.vim'
 call plug#end()
+
+" --------------
 " Basic settings
 " --------------
-execute pathogen#infect()
 syntax enable " enable syntax processing
-colorscheme thaumaturge
+colorscheme monokai_pro " molokai
 filetype plugin on
 " filetype indent on " load filetype-specific indent files
 let mapleader=","
 
-" use spaces as indent. Source: http://vim.wikia.com/wiki/Indenting_source_code
-set softtabstop=2 " Number of spaces in tab when editing
-set shiftwidth=2 " Number of spaces in tab when editing
-
-set expandtab " tabs are spaces
+set termguicolors
+set expandtab
+set tabstop=2 " number of visual spaces per TAB
+set backspace=indent,eol,start " make backspace key "work"
 set number " show line numbers
 set relativenumber " relative line numbers
 set showcmd " show command in bottom bar
@@ -64,7 +65,7 @@ set foldenable " enable folding
 set foldlevelstart=10 " open most folds on start
 set foldnestmax=10 " 10 nested fold max
 set foldmethod=indent " fold based on indent level
-
+set guifont=SpaceMono\ Nerd\ Font\ Mono:h14
 " ----------
 " Mappings
 " ----------
@@ -96,7 +97,13 @@ nnoremap <leader>mwr <C-w>L " move crreut window to far right
 let g:ale_sign_error = '●'
 let g:ale_linters = { }
 let g:ale_linters.javascript = ['eslint', 'standard']
+let g:ale_fixers = { }
+let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_javascript_prettier_options = '--single-quote es5' 
+" let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fix_on_save = 1
+let g:ycm_autoclose_preview_window_after_insertion=1
+
 
 " vim-airline (https://github.com/vim-airline/vim-airline) 
 let g:airline_powerline_fonts=1
@@ -105,7 +112,6 @@ let g_airline_detect_spell=0
 let g:airline_skip_empty_sections=1
 let g:airline_section_x=''
 let g:airline_section_c = airline#section#create(['%f'])
-let g:ycm_autoclose_preview_window_after_insertion=1
 
 " vim-markdown (https://github.com/plasticboy/vim-markdown)
 set conceallevel=2
@@ -122,6 +128,7 @@ augroup END
 " YouCompleteMe (https://github.com/valloric/youcompleteme)
 let g:ycm_key_list_select_completion=['<Down>'] " change the binding for select so it can play nice with UltiSnips
 let g:ycm_key_list_previous_completion=['<Up>'] " change the binding for select so it can play nice with UltiSnips
+let g:ycm_autoclose_preview_window_after_completion=1
 " Tabular (https://github.com/godlygeek/tabular)
 
 " vim-test (https://github.com/janko-m/vim-test)
@@ -135,3 +142,8 @@ let g:NERDSpaceDelims = 1 " add spaces after comment delimiters by default
 let g:NERDTrimTrailingWhitespace = 1 " enable trimming of trailing whitespace when uncommenting
 let g:NERDToggleCheckAllLines = 1
 " surround (https://github.com/tpope/vim-surround)
+
+" ctrlp
+let g:ctrlp_custom_ignore = {
+\ 'dir': '\v[\/]\.(git)|node_modules$'
+\}
