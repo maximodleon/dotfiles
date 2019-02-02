@@ -16,7 +16,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                                 = theme.confdir .. "/wall.png"
-theme.font                                      = "xos4 Terminus 8"
+theme.font                                      = "xos4 Terminus 10"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
@@ -48,11 +48,27 @@ theme.widget_note_on                            = theme.confdir .. "/icons/note_
 theme.widget_netdown                            = theme.confdir .. "/icons/net_down.png"
 theme.widget_netup                              = theme.confdir .. "/icons/net_up.png"
 theme.widget_mail                               = theme.confdir .. "/icons/mail.png"
-theme.widget_batt                               = theme.confdir .. "/icons/bat.png"
+theme.widget_batt_30                            = theme.confdir .. "/icons/battery-30.png"
+theme.widget_batt_60                            = theme.confdir .. "/icons/battery-60.png"
+theme.widget_batt_90                            = theme.confdir .. "/icons/battery-90.png"
+theme.widget_batt_full                          = theme.confdir .. "/icons/battery.png"
+theme.widget_batt_30_ac                         = theme.confdir .. "/icons/battery-charging-30.png"
+theme.widget_batt_60_ac                         = theme.confdir .. "/icons/battery-charging-60.png"
+theme.widget_batt_90_ac                         = theme.confdir .. "/icons/battery-charging-90.png"
+theme.widget_batt_full_ac                       = theme.confdir .. "/icons/battery-charging-100.png"
 theme.widget_clock                              = theme.confdir .. "/icons/clock.png"
-theme.widget_vol                                = theme.confdir .. "/icons/spkr.png"
+theme.widget_vol_low                            = theme.confdir .. "/icons/volume-low.png"
+theme.widget_vol_high                           = theme.confdir .. "/icons/volume-high.png"
+theme.widget_vol_med                            = theme.confdir .. "/icons/volume-medium.png"
 theme.taglist_squares_sel                       = theme.confdir .. "/icons/square_a.png"
 theme.taglist_squares_unsel                     = theme.confdir .. "/icons/square_b.png"
+theme.wireless_full                             = theme.confdir .. "/icons/wireless-full.png"
+theme.wireless_high                             = theme.confdir .. "/icons/wireless-high.png"
+theme.wireless_med                              = theme.confdir .. "/icons/wireless-medium.png"
+theme.wireless_low                              = theme.confdir .. "/icons/wireless-low.png"
+theme.wireless_none                             = theme.confdir .. "/icons/wireless-none.png"
+theme.wireless_disconnected                     = theme.confdir .. "/icons/wireless-disconnected.png"
+theme.ethernet_connected                        = theme.confdir .. "/icons/ethernet-connected.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = 0
@@ -95,7 +111,7 @@ local markup = lain.util.markup
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#7788af", "%A, %B %d %Y") .. markup("#de5e1e", " %I:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -172,21 +188,42 @@ local temp = lain.widget.temp({
 })
 
 -- Battery
-local baticon = wibox.widget.imagebox(theme.widget_batt)
+local baticon = wibox.widget.imagebox()
 local bat = lain.widget.bat({
     settings = function()
-        local perc = bat_now.perc ~= "N/A" and bat_now.perc .. "%" or bat_now.perc
+        local perc = bat_now.perc
 
-        if bat_now.ac_status == 1 then
-            perc = perc .. " plug"
+        if bat_now.perc ~= "N/A" then
+          local percentage = tonumber(bat_now.perc)
+         if bat_now.ac_status == 1 then
+            if percentage <= 30 then
+              baticon:set_image(theme.widget_batt_30_ac)
+             elseif percentage > 30 and bat_now.perc <= 59 then
+              baticon:set_image(theme.widget_batt_60_ac)
+            elseif percentage > 60 and bat_now.perc <= 89 then
+              baticon:set_image(theme.widget_batt_90_ac)
+             else 
+              baticon:set_image(theme.widget_batt_full_ac)
+           end
+         else 
+           if percentage <= 30 then
+              baticon:set_image(theme.widget_batt_30)
+            elseif percentage > 30 and bat_now.perc <= 59 then
+              baticon:set_image(theme.widget_batt_60)
+            elseif percentage > 60 and bat_now.perc <= 89 then
+              baticon:set_image(theme.widget_batt_90)
+            else 
+              baticon:set_image(theme.widget_batt_full)
+           end
         end
+      end
 
         widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
     end
 })
 
 -- ALSA volume
-local volicon = wibox.widget.imagebox(theme.widget_vol)
+local volicon = wibox.widget.imagebox(theme.widget_vol_high)
 theme.volume = lain.widget.alsa({
     settings = function()
         if volume_now.status == "off" then
@@ -194,14 +231,29 @@ theme.volume = lain.widget.alsa({
         end
 
         widget:set_markup(markup.fontfg(theme.font, "#7493d2", volume_now.level .. "% "))
+
+        local level = tonumber(volume_now.level)
+        if level < 30 then
+            volicon:set_image(theme.widget_vol_low)
+         elseif level >= 80 then
+            volicon:set_image(theme.widget_vol_high)
+         else 
+           volicon:set_image(theme.widget_vol_med)
+        end
     end
 })
 
 -- Net
-local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
-local netdowninfo = wibox.widget.textbox()
-local netupicon = wibox.widget.imagebox(theme.widget_netup)
-local netupinfo = lain.widget.net({
+-- local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
+-- local netdowninfo = wibox.widget.textbox()
+local ssidinfo = wibox.widget.textbox()
+-- local netupicon = wibox.widget.imagebox(theme.widget_netup)
+local wifi_icon = wibox.widget.imagebox()
+local eth_icon = wibox.widget.imagebox()
+local netinfo = lain.widget.net({
+    wifi_state="on",
+    eth_state="on",
+    notify = "off",
     settings = function()
         if iface ~= "network off" and
            string.match(theme.weather.widget.text, "N/A")
@@ -209,8 +261,39 @@ local netupinfo = lain.widget.net({
             theme.weather.update()
         end
 
-        widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent .. " "))
-        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received .. " "))
+        local eth0 = net_now.devices.enp0s25
+
+        if eth0 then
+          if eth0.ethernet then
+            eth_icon:set_image(theme.ethernet_connected)
+          else 
+            eth_icon:set_image()
+          end
+        end
+
+        local wlan0 = net_now.devices.wlp3s0
+
+        if wlan0 then
+
+          if wlan0.wifi then
+            local signal = wlan0.signal
+            if signal < -83 then
+               wifi_icon:set_image(theme.wireless_low)
+            elseif signal < -70 then
+               wifi_icon:set_image(theme.wireless_med)
+            elseif signal < -53 then
+               wifi_icon:set_image(theme.wireless_high)
+            elseif signal >= -53 then
+               wifi_icon:set_image(theme.wireless_full)
+            end
+          end
+           ssidinfo:set_markup(markup.fontfg(theme.font, "#87af5f",  wlan0.ssid .. " "))
+          else 
+           wifi_icon:set_image(theme.wireless_disconnected)
+        end
+
+        -- widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent .. " "))
+        -- netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received .. " "))
     end
 })
 
@@ -249,6 +332,14 @@ theme.mpd = lain.widget.mpd({
         widget:set_markup(markup.fontfg(theme.font, "#e54c62", artist) .. markup.fontfg(theme.font, "#b2b2b2", title))
     end
 })
+
+local separator = wibox.widget {
+ widget = wibox.widget.separator,
+ orientation = "vertical",
+ forced_width = 1,
+ visible = true,
+ color = "#aaaaaa"
+}
 
 function theme.at_screen_connect(s)
     -- Quake application
@@ -300,14 +391,16 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            --mailicon,
-            --theme.mail.widget,
-            netdownicon,
-            netdowninfo,
-            netupicon,
-            netupinfo.widget,
+           --mailicon,
+           --theme.mail.widget,
+           -- netdownicon,
+           -- netdowninfo,
+           -- netupicon,
+            netinfo.widget,
+            separator,
             volicon,
             theme.volume.widget,
+            separator,
             memicon,
             memory.widget,
             cpuicon,
@@ -316,11 +409,20 @@ function theme.at_screen_connect(s)
             --theme.fs.widget,
             -- weathericon,
             -- theme.weather.widget,
+            separator,
             tempicon,
             temp.widget,
+            separator,
             baticon,
             bat.widget,
+            separator,
+            wifi_icon,
+            separator,
+            ssidinfo,
+            eth_icon,
+            separator,
             clockicon,
+            separator,
             mytextclock,
         },
     }

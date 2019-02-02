@@ -68,8 +68,11 @@ local function factory(args)
             dev_now.last_r   = now_r
 
             if wifi_state == "on" and helpers.first_line(string.format("/sys/class/net/%s/uevent", dev)) == "DEVTYPE=wlan" and string.match(dev_now.carrier, "1") then
+
                 dev_now.wifi   = true
                 dev_now.signal = tonumber(string.match(helpers.lines_from("/proc/net/wireless")[3], "(%-%d+%.)")) or nil
+                dev_now.ssid = " "
+                dev_now.ssid = io.popen("iw " .. dev .. " link | awk '/SSID/ {print $2}'"):read("*a")
             end
 
             if eth_state == "on" and helpers.first_line(string.format("/sys/class/net/%s/uevent", dev)) ~= "DEVTYPE=wlan" and string.match(dev_now.carrier, "1") then
