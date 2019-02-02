@@ -1,5 +1,12 @@
 # DOTFILES
 
+## awesomewm
+
+* Install awesomewm for your system
+* Download the config files
+* Place in ~/.config/awesome folder
+* Default theme is `multicolor` with icons from the material design icons library ([link](https://materialdesignicons.com/))
+
 ## i3wm
 
 * Install i3wm for your system ([link](https://i3wm.org/))
