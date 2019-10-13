@@ -16,7 +16,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "xos4 Terminus 9"
+theme.font                                      = "Terminus 12"
 theme.fg_normal                                 = "#DDDDFF"
 theme.fg_focus                                  = "#EA6F81"
 theme.fg_urgent                                 = "#CC9393"
@@ -93,7 +93,7 @@ local separators = lain.util.separators
 -- Textclock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
-    "date +'%a %d %b %R'", 60,
+    "date +'%a %d %b %I:%M'", 60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
@@ -103,7 +103,7 @@ local clock = awful.widget.watch(
 theme.cal = lain.widget.cal({
     attach_to = { clock },
     notification_preset = {
-        font = "xos4 Terminus 10",
+        font = "Terminus 10",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -242,13 +242,23 @@ theme.volume = lain.widget.alsa({
 })
 
 -- Net
+local ssidinfo = wibox.widget.textbox()
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
+    wifi_state="on",
+    eth_state="on",
+    notify = "off",
     settings = function()
-        widget:set_markup(markup.font(theme.font,
-                          markup("#7AC82E", " " .. net_now.received)
-                          .. " " ..
-                          markup("#46A8C3", " " .. net_now.sent .. " ")))
+        -- widget:set_markup(markup.font(theme.font,
+        --                   markup("#7AC82E", " " .. net_now.received)
+        --                   .. " " ..
+        --                   markup("#46A8C3", " " .. net_now.sent .. " ")))
+        --
+        local wlan0 = net_now.devices.wlp3s0
+
+        if wlan0 then
+           ssidinfo:set_markup(markup.fontfg(theme.font, "#87af5f",  " " .. wlan0.ssid .. " "))
+        end
     end
 })
 
@@ -307,16 +317,13 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             spr,
             arrl_ld,
-            wibox.container.background(mpdicon, theme.bg_focus),
-            wibox.container.background(theme.mpd.widget, theme.bg_focus),
-            arrl_dl,
-            volicon,
-            theme.volume.widget,
-            arrl_ld,
-            wibox.container.background(mailicon, theme.bg_focus),
-            --wibox.container.background(theme.mail.widget, theme.bg_focus),
+            wibox.container.background(volicon, theme.bg_focus),
+            --wibox.container.background(theme.mpd.widget, theme.bg_focus),
+            --volicon,
+            wibox.container.background(theme.volume.widget, theme.bg_focus),
             arrl_dl,
             memicon,
+            --wibox.container.background(theme.mail.widget, theme.bg_focus),
             mem.widget,
             arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
@@ -324,20 +331,17 @@ function theme.at_screen_connect(s)
             arrl_dl,
             tempicon,
             temp.widget,
-            arrl_ld,
-            wibox.container.background(fsicon, theme.bg_focus),
             --wibox.container.background(theme.fs.widget, theme.bg_focus),
-            arrl_dl,
-            baticon,
-            bat.widget,
             arrl_ld,
-            wibox.container.background(neticon, theme.bg_focus),
-            wibox.container.background(net.widget, theme.bg_focus),
+            wibox.container.background(baticon, theme.bg_focus),
+            wibox.container.background(bat.widget, theme.bg_focus),
             arrl_dl,
-            clock,
-            spr,
+            neticon,
+            ssidinfo,
             arrl_ld,
-            wibox.container.background(s.mylayoutbox, theme.bg_focus),
+            wibox.container.background(clock, theme.bg_focus),
+            arrl_dl,
+            s.mylayoutbox,
         },
     }
 end

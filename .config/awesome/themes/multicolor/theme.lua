@@ -16,7 +16,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                                 = theme.confdir .. "/wall.png"
-theme.font                                      = "xos4 Terminus 10"
+theme.font                                      = "Mono Nerd Font 10"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
@@ -208,9 +208,9 @@ local bat = lain.widget.bat({
          else 
            if percentage <= 30 then
               baticon:set_image(theme.widget_batt_30)
-            elseif percentage > 30 and bat_now.perc <= 59 then
+            elseif percentage >= 30 and bat_now.perc <= 59 then
               baticon:set_image(theme.widget_batt_60)
-            elseif percentage > 60 and bat_now.perc <= 89 then
+            elseif percentage >= 60 and bat_now.perc <= 89 then
               baticon:set_image(theme.widget_batt_90)
             else 
               baticon:set_image(theme.widget_batt_full)
@@ -333,14 +333,6 @@ theme.mpd = lain.widget.mpd({
     end
 })
 
-local separator = wibox.widget {
- widget = wibox.widget.separator,
- orientation = "vertical",
- forced_width = 1,
- visible = true,
- color = "#aaaaaa"
-}
-
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
@@ -386,8 +378,9 @@ function theme.at_screen_connect(s)
             mpdicon,
             theme.mpd.widget,
         },
-        --s.mytasklist, -- Middle widget
-        nil,
+        -- Middle widgets
+        { layout = wibox.layout.fixed.horizontal, s.mytasklist },
+        -- { layout = wibox.layout.align.horizontal, weahtericon, theme.weather.widget },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
@@ -397,10 +390,8 @@ function theme.at_screen_connect(s)
            -- netdowninfo,
            -- netupicon,
             netinfo.widget,
-            separator,
             volicon,
             theme.volume.widget,
-            separator,
             memicon,
             memory.widget,
             cpuicon,
@@ -409,20 +400,14 @@ function theme.at_screen_connect(s)
             --theme.fs.widget,
             -- weathericon,
             -- theme.weather.widget,
-            separator,
             tempicon,
             temp.widget,
-            separator,
             baticon,
             bat.widget,
-            separator,
             wifi_icon,
-            separator,
             ssidinfo,
             eth_icon,
-            separator,
             clockicon,
-            separator,
             mytextclock,
         },
     }
