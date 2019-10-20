@@ -7,6 +7,9 @@
 * Place in ~/.config/awesome folder
 * Default theme is `multicolor` with icons from the material design icons library ([link](https://materialdesignicons.com/))
 
+## tig
+Git repository viewer
+
 ## i3wm
 
 * Install i3wm for your system ([link](https://i3wm.org/))
@@ -29,7 +32,7 @@ Preferred font is [Space Mono](https://github.com/ryanoasis/nerd-fonts/tree/mast
 #### Using vim-plug
 1. Copy the `.vimrc` file to you home directory.
 2. Install the plugin manager vim-plug ([link](https://github.com/maximodleon/dotfiles))
-3. Open vim and run `:PlugInstall` 
+3. Open vim and run `:PlugInstall`
 #### Plugins list
 * **ale:** ([link](https://github.com/w0rp/ale)) asynchronous linter
 * **vim-airline:** ([link](https://github.com/vim-airline/vim-airline)) status line
