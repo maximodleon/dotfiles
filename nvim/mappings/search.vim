@@ -98,8 +98,11 @@ endfunction
 
 " ----- NERDtree -----------
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
+" ------ FZF ---------------
 nnoremap <silent><leader>f :Files<CR>
 nnoremap <silent><leader>r :Buffers<CR>
+nnoremap <silent><leader>bl :BLines<CR>
+nnoremap <silent><leader>bf :Buffers<CR>
 " nnoremap <silent><leader>p :Clap files<CR>
 " nnoremap <silent><leader>b :Clap buffers<CR>
 " nnoremap <silent><leader>c :Clap command<CR>
