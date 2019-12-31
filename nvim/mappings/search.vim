@@ -68,8 +68,8 @@ let g:SuperTabMappingBackward = '<tab>'
 
 " ----- NERDtree -----------
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
-nnoremap <silent><leader>p :CtrlP<CR>
-nnoremap <silent><leader>b :CtrlPBuffer<CR>
+nnoremap <silent><leader>f :Files<CR>
+nnoremap <silent><leader>r :Buffers<CR>
 " nnoremap <silent><leader>p :Clap files<CR>
 " nnoremap <silent><leader>b :Clap buffers<CR>
 " nnoremap <silent><leader>c :Clap command<CR>
