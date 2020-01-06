@@ -4,7 +4,7 @@ noremap <leader>lD :call CocAction('jumpDefinition', 'vsplit')<CR>zz
 nmap <leader>la <Plug>(coc-reference)
 nmap <leader>lr <Plug>(coc-rename)
 noremap <leader>lh :call CocAction('doHover')<CR>
-noremap <leader>lO :Vista<CR>
+noremap <leader>lO :Vista!!<CR>
 noremap <leader>lp :CocList diagnostics<CR>
 
 " Quickfix
