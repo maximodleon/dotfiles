@@ -14,3 +14,5 @@ nnoremap <leader>> :!<space>
 "Copy/paste from register
 vnoremap <leader>cc "*y
 map <leader>vv "*p
+
+" tnoremap <ESC> <C-\><C-n>
