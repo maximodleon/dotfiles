@@ -6,6 +6,7 @@ nnoremap ; :
 nnoremap : ;
 nnoremap <leader>/t :vsplit term://zsh<CR>
 nnoremap <leader>-t :split term://zsh<CR>
+nnoremap <leader>ft :call OpenEmptyTerm()<CR>
 nnoremap <leader><F5> :source ~/.config/nvim/general.vim<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR> <leader>q :q<CR>
