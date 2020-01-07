@@ -66,35 +66,35 @@ let g:SuperTabMappingBackward = '<tab>'
 
 " Configure FZF to open in floating window
 let $FZF_DEFAULT_OPTS = '--layout=reverse'
-let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
-function! OpenFloatingWin()
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2/10))
-  let col = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': height * 0.3,
-        \ 'col': col + 30,
-        \ 'width': width * 2/3,
-        \ 'height': height / 2
-        \  }
-  let buf = nvim_create_buf(v:false, v:true)
-  let win = nvim_open_win(buf, v:true, opts)
-  
-  call setwinvar(win, '&winhl', 'Normal:Pmenu')
-
-  setlocal
-        \ buftype=nofile
-        \ nobuflisted
-        \ bufhidden=hide
-        \ nonumber
-        \ norelativenumber
-        \ signcolumn=no
-
-endfunction
-
+" function! OpenFloatingWin()
+"   let height = &lines - 3
+"   let width = float2nr(&columns - (&columns * 2/10))
+"   let col = float2nr((&columns - width) / 2)
+" 
+"   let opts = {
+"         \ 'relative': 'editor',
+"         \ 'row': height * 0.3,
+"         \ 'col': col + 30,
+"         \ 'width': width * 2/3,
+"         \ 'height': height / 2
+"         \  }
+"   let buf = nvim_create_buf(v:false, v:true)
+"   let win = nvim_open_win(buf, v:true, opts)
+"   
+"   call setwinvar(win, '&winhl', 'Normal:Pmenu')
+" 
+"   setlocal
+"         \ buftype=nofile
+"         \ nobuflisted
+"         \ bufhidden=hide
+"         \ nonumber
+"         \ norelativenumber
+"         \ signcolumn=no
+" 
+" endfunction
+" 
 
 " ----- NERDtree -----------
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
