@@ -91,6 +91,10 @@ function! OpenTerm(cmd)
     call termopen(a:cmd, { 'on_exit': function('OnTermExit') })
 endfunction
 
+function! OpenEmptyTerm()
+  call OpenTerm('zsh')
+endfunction
+
 function! OpenTig()
    call OpenTerm('tig')
 endfunction
