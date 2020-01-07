@@ -57,6 +57,12 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 autocmd TermOpen term://* startinsert
 autocmd BufLeave term://* stopinsert
 
+if has('macunix')
+  set rtp+=/usr/local/opt/fzf
+  else 
+    set rtp+=~/.fzf
+endif
+
 function! CreateCenteredFloatingWindow()
     let width = float2nr(&columns * 0.8)
     let height = float2nr(&lines * 0.8)
