@@ -28,9 +28,6 @@ nnoremap <leader>co :cw<CR>
 nnoremap <leader>cc :ccl<CR>
 
 
-" vnoremap <c-q><c-r> :%DB g:db_url<CR>
-" nnoremap <c-q><c-s> :DB g:db_url =
-
 nnoremap <BS> :b#<CR>
 let g:vista_sidebar_width = 45
 let g:vista_disable_statusline = 1
@@ -68,38 +65,10 @@ let g:SuperTabMappingBackward = '<tab>'
 let $FZF_DEFAULT_OPTS = '--layout=reverse'
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
-" function! OpenFloatingWin()
-"   let height = &lines - 3
-"   let width = float2nr(&columns - (&columns * 2/10))
-"   let col = float2nr((&columns - width) / 2)
-" 
-"   let opts = {
-"         \ 'relative': 'editor',
-"         \ 'row': height * 0.3,
-"         \ 'col': col + 30,
-"         \ 'width': width * 2/3,
-"         \ 'height': height / 2
-"         \  }
-"   let buf = nvim_create_buf(v:false, v:true)
-"   let win = nvim_open_win(buf, v:true, opts)
-"   
-"   call setwinvar(win, '&winhl', 'Normal:Pmenu')
-" 
-"   setlocal
-"         \ buftype=nofile
-"         \ nobuflisted
-"         \ bufhidden=hide
-"         \ nonumber
-"         \ norelativenumber
-"         \ signcolumn=no
-" 
-" endfunction
-" 
-
 " ----- NERDtree -----------
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
 " ------ FZF ---------------
-nnoremap <silent><leader>f :Files<CR>
+nnoremap <silent><leader>f :GFiles<CR>
 nnoremap <silent><leader>r :Rg<CR>
 nnoremap <silent><leader>bl :BLines<CR>
 nnoremap <silent><leader>bf :Buffers<CR>
@@ -107,6 +76,3 @@ nnoremap <silent><leader>bf :Buffers<CR>
 nnoremap <silent><leader>nm :Maps<CR>
 " List of available commands
 nnoremap <silent><leader>co :Commands<CR>
-" nnoremap <silent><leader>p :Clap files<CR>
-" nnoremap <silent><leader>b :Clap buffers<CR>
-" nnoremap <silent><leader>c :Clap command<CR>
