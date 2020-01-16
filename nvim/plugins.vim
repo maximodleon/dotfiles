@@ -27,6 +27,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " exist and other plugins can kick in
 call minpac#add('jparise/vim-graphql')
 call minpac#add('pangloss/vim-javascript')
+call minpac#add('leafgarland/typescript-vim')
 call minpac#add('fatih/vim-go', { 'do': 'GoUpdateBinaries' })
 "    ____                 ____  _             _
 "   / ___|___  _ __ ___  |  _ \| |_   _  __ _(_)_ __  ___
