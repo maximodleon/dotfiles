@@ -1,6 +1,6 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["elixir", "go"],
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "◉",
   "suggest.completionItemKindLabels": {

@@ -2,7 +2,7 @@
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gitblame<CR>
+nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>g> :GitGutterNextHunk<CR>
 nnoremap <leader>g< :GitGutterPrevHunk<CR>
 nnoremap <leader>gw :Gwrite<CR>
