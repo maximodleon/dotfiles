@@ -87,6 +87,7 @@ call minpac#add('justinmk/vim-sneak')
 
 call minpac#add('challenger-deep-theme/vim', { 'name': 'challenger-deep' })
 call minpac#add('phanviet/vim-monokai-pro')
+call minpac#add('cocopon/iceberg.vim')
 " call minpac#add('ayu-theme/ayu-vim', {'type': 'opt'})
 " call minpac#add('drewtempelmeyer/palenight.vim', {'type': 'opt'})
 " call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})

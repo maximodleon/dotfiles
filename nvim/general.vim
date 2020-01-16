@@ -2,7 +2,7 @@ syntax enable
 
 " Colors and styling
 highlight Comment cterm=italic
-colorscheme challenger_deep
+colorscheme iceberg 
 
 "Spaces and tabs
 set tabstop=2
