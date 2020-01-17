@@ -23,4 +23,4 @@ else
 fi
 
 
-echo " $SSID|$WIFI_IP #[fg=#454b68,bg=#2e3244,nobold,nounderscore,noitalics]#[fg=#c6c8d1,bg=#2e3244]  $ETH_IP#[fg=#454b68,bg=#2e3244,nobold,nounderscore,noitalics]" 
+echo "  $SSID | $WIFI_IP #[fg=#c6c8d1,bg=#2e3244]  $ETH_IP" 
