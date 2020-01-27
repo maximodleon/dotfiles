@@ -38,7 +38,9 @@ let g:vista_disable_statusline = 1
 let g:sneak#label = 1
 " Set ag as the grep progam
 if executable('rg') 
-   set grepprg=rq\ --vimgrep
+   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+   set grepprg=rg\ --vimgrep
+   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
 
 let g:vista#renderer#enable_icon = 1
@@ -61,14 +63,14 @@ let g:vista_default_executive = 'coc'
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
 
-" Configure FZF to open in floating window
 let $FZF_DEFAULT_OPTS = '--layout=reverse'
+" Configure FZF to open in floating window
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
 " ----- NERDtree -----------
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
 " ------ FZF ---------------
-nnoremap <silent><leader>f :GFiles<CR>
+nnoremap <silent><leader>f :call Fzf_dev()<CR>
 nnoremap <silent><leader>r :Rg<CR>
 nnoremap <silent><leader>bl :BLines<CR>
 nnoremap <silent><leader>bf :Buffers<CR>
