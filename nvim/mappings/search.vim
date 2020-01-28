@@ -71,6 +71,7 @@ let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 nnoremap <silent><leader>\ :NERDTreeToggle<CR>
 " ------ FZF ---------------
 nnoremap <silent><leader>f :call Fzf_dev()<CR>
+" nnoremap <silent><leader>f :Files<CR>
 nnoremap <silent><leader>r :Rg<CR>
 nnoremap <silent><leader>bl :BLines<CR>
 nnoremap <silent><leader>bf :Buffers<CR>
