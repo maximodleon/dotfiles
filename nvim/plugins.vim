@@ -40,6 +40,7 @@ call minpac#add('fatih/vim-go', { 'do': 'GoUpdateBinaries' })
 
 " Utility Things
 "
+call minpac#add('mhinz/vim-startify')
 call minpac#add('yuttie/comfortable-motion.vim')
 call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('tpope/vim-surround')

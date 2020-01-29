@@ -1,6 +1,18 @@
 syntax enable
 
-" Colors and styling
+
+" startify header
+let g:startify_custom_header = [
+ \'                   ____',
+ \'                  (_  _)',
+ \'        .  .       / /',
+ \'     .`_.__..    / /',
+ \'     \   o   /   / /',
+ \'  Pru \ /   /  _/ /_',
+ \'`. ~. `\___/./~. /.~`.',
+ \'.``.`.``.~.`~.``.~`',
+ \]
+
 highlight Comment cterm=italic
 colorscheme iceberg 
 
