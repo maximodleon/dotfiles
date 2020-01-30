@@ -36,13 +36,6 @@ let g:vista_disable_statusline = 1
 " symbols, then you can enable icon for the kind.
 " Sneak
 let g:sneak#label = 1
-" Set ag as the grep progam
-if executable('rg') 
-   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-   set grepprg=rg\ --vimgrep
-   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-endif
-
 let g:vista#renderer#enable_icon = 1
 let g:vista_icon_indent = ["▸", ""]
 
