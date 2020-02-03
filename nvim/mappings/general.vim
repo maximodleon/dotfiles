@@ -10,6 +10,8 @@ nnoremap <leader>ct :call OpenEmptyTerm()<CR>
 nnoremap <leader><F5> :source ~/.config/nvim/general.vim<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR> <leader>q :q<CR>
+nnoremap <leader>zi <c-w>_ \| <c-w>\|
+nnoremap <leader>zo <c-w>=
 
 " Quickly call external programs
 nnoremap <leader>> :!<space>
