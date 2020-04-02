@@ -13,6 +13,9 @@
 
 **Note 3**: Default city is santo domingo. if you need a different one, need to set the CITY variable in `.config/polybar/scripts/weather.sh`
 
+## ttyplot
+ plotting software for the terminal
+
 ## awesomewm
 
 * Install awesomewm for your system
