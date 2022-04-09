@@ -50,33 +50,42 @@ call minpac#add('tpope/vim-projectionist')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('machakann/vim-highlightedyank')
-call minpac#add('janko/vim-test')
+" call minpac#add('janko/vim-test')
+call minpac#add('nvim-treesitter/nvim-treesitter', { 'run': ':TSUpdate' })
+call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
 " call minpac#add('wakatime/vim-wakatime')
 call minpac#add('christoomey/vim-tmux-navigator')
 "call minpac#add('SirVer/ultisnips')
-call minpac#add('kana/vim-textobj-user')
+" call minpac#add('kana/vim-textobj-user')
 " Fixers, completion and navigation
-call minpac#add('neomake/neomake')
-call minpac#add('w0rp/ale')
+" call minpac#add('neomake/neomake')
+" call minpac#add('w0rp/ale')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('liuchengxu/vista.vim')
 call minpac#add('ervandew/supertab')
 " call minpac#add('ctrlpvim/ctrlp.vim')
-call minpac#add('junegunn/fzf.vim', { 'dir': '~/.fzf', 'do': './install --all' })
+call minpac#add('junegunn/fzf.vim', { 'dir': '~/.fzf', 'do': './install' })
 call minpac#add('liuchengxu/vim-clap')
 " Status and UI
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('ryanoasis/vim-devicons')
 call minpac#add('tiagofumo/vim-nerdtree-syntax-highlight')
 call minpac#add('itchyny/lightline.vim')
-call minpac#add('itchyny/calendar.vim')
-call minpac#add('glacambre/firenvim')
+" call minpac#add('itchyny/calendar.vim')
+" call minpac#add('glacambre/firenvim')
 " Git
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('rhysd/git-messenger.vim')
 call minpac#add('niklaas/lightline-gitdiff')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('justinmk/vim-sneak')
+
+" Zettlekasten
+" call minpac#add('oberblastmeister/neuron.nvim', { 'branch': 'unstable' })
+" call minpac#add('nvim-lua/popup.nvim')
+" call minpac#add('nvim-lua/plenary.nvim')
+"call minpac#add('nvim-telescope/telescope.nvim')
+call minpac#add('Furkanzmc/zettelkasten.nvim')
 "   _____ _
 
 
@@ -112,7 +121,8 @@ call minpac#add('tpope/vim-dadbod', { 'type': 'opt' })
 " Markdown
 call minpac#add('junegunn/goyo.vim', {'type': 'opt'})
 " Javascript
-call minpac#add('mattn/emmet-vim', { 'type': 'opt' })
-call minpac#add('MaxMEllon/vim-jsx-pretty', { 'type': 'opt' })
+" call minpac#add('mattn/emmet-vim', { 'type': 'opt' })
+" call minpac#add('MaxMEllon/vim-jsx-pretty', { 'type': 'opt' })
 call minpac#add('heavenshell/vim-jsdoc', { 'type': 'opt' })
-
+" Rust
+call minpac#add('rust-lang/rust.vim')

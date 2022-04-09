@@ -1,8 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["elixir", "go"],
-  "codeLens.enable": false,
+  "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.errorSign": "◉",
+  "diagnostic.warningSign":"U+26A0",
   "suggest.completionItemKindLabels": {
     "module": " ",
     "function": "ﬦ",
@@ -10,13 +11,5 @@
   },
   "suggest.snippetIndicator": "\u26a1 ",
   "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
   }
 }
