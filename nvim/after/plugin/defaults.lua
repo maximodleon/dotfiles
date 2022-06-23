@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
+vim.cmd('colorscheme iceberg')
+
 
 g.mapleader = ","
 opt.timeoutlen = 300
