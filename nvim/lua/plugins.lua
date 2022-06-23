@@ -46,6 +46,9 @@ local function plugins(use)
 	use('tpope/vim-projectionist')
 	use('tpope/vim-dispatch')
 	use('tpope/vim-endwise')
+	use('phanviet/vim-monokai-pro')
+	use('cocopon/iceberg.vim')
+
 
 	use {
 		'nvim-telescope/telescope.nvim',
