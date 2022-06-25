@@ -55,6 +55,10 @@ local function plugins(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+	--Treesitter
+	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+	use "p00f/nvim-ts-rainbow"
+
 end
 
 packer_init()

@@ -1,2 +1,3 @@
 
-require("lua/plugins").setup()
+require("plugins").setup()
+require("user.treesitter")
