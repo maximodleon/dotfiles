@@ -57,7 +57,6 @@ local function plugins(use)
 
 	--Treesitter
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-	use "p00f/nvim-ts-rainbow"
 
 end
 

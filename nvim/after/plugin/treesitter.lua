@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 configs.setup {
-	ensure_installed = "maintained",
+	ensure_installed = { "javascript", "rust", "lua" },
 	sync_install = false,
 	ignore_install = { "" },
 	highlight = {
@@ -14,7 +14,4 @@ configs.setup {
 		additonal_vim_regex_highlighting = true
 	},
 	indent = { enable = true, disable = { "yaml" } },
-	rainbow = { 
-		enable = true
-	}
 }
