@@ -58,6 +58,10 @@ local function plugins(use)
 	--Treesitter
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
+	-- Startify
+	use "mhinz/vim-startify"
+	-- devicons
+	use "ryanoasis/vim-devicons"
 end
 
 packer_init()
