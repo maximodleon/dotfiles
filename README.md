@@ -28,7 +28,7 @@ Git repository viewer
 
 ## Editor
 ### Neovim
-[Informacion][nvim/README.md]
+[Informacion](nvim/README.md)
 ### Font
 Terminal or gui font should be set to a nerd font for filetype icons to display correctly.
 Preferred font is [Space Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SpaceMono)
