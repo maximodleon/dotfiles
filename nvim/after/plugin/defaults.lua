@@ -2,6 +2,7 @@ local opt = vim.opt
 local g = vim.g
 
 vim.cmd('colorscheme iceberg')
+vim.cmd('filetype plugin on')
 
 
 g.mapleader = ","
