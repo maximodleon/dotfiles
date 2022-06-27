@@ -7,7 +7,7 @@ wk.register({
 		f = "Buscar archivo",
 		g = "Grep",
 		h = "Tags",
-		n = "Nuevo archivo"
+		n = { "<cmd>enew<cr>", "Nuevo archivo" }
 	},
 	g = {
 		name = "Git",
