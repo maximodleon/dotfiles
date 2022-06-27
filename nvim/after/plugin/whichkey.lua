@@ -6,7 +6,8 @@ wk.register({
 		b = "Buscar buffer",
 		f = "Buscar archivo",
 		g = "Grep",
-		h = "Tags"
+		h = "Tags",
+		n = "Nuevo archivo"
 	},
 	g = {
 		name = "Git",
