@@ -62,6 +62,12 @@ local function plugins(use)
 	use "mhinz/vim-startify"
 	-- devicons
 	use "ryanoasis/vim-devicons"
+
+  --which key
+	use { "folke/which-key.nvim", 
+		config = function()
+				require("which-key").setup { }
+			end}	
 end
 
 packer_init()
