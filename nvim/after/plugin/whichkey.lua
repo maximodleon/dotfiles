@@ -2,12 +2,14 @@ local wk = require("which-key")
 
 wk.register({
 	f = {
+		name = "Telescope",
 		b = "Buscar buffer",
 		f = "Buscar archivo",
 		g = "Grep",
 		h = "Tags"
 	},
 	g = {
+		name = "Git",
 		b = "Git blame",
 		c = "Git commit",
 		d = "Git diff",
@@ -17,6 +19,7 @@ wk.register({
 		w = "Git write"
 	},
 	z = {
+		name = "zettlekasten",
 		f = "Nota fugaz",
 		l = "Nota literaria",
 		n = "Crear nota en directorio actual",
