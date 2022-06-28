@@ -67,7 +67,11 @@ local function plugins(use)
 	use { "folke/which-key.nvim", 
 		config = function()
 				require("which-key").setup { }
-			end}	
+		end
+	}	
+
+  -- lsp configs
+  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 end
 
 packer_init()

@@ -15,6 +15,7 @@ wk.register({
 		c = "Git commit",
 		d = "Git diff",
 		l = "Git log",
+		p = "Git push",
 		r = "Git read",
 		s = "Git status",
 		w = "Git write"
