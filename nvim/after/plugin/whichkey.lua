@@ -32,3 +32,12 @@ wk.register({
 	},
 },  
 { prefix = "<leader>" })
+
+wk.register({
+	-- como hacer para que esto sea solo cuando hay un LS
+	g = {
+		d = "go to definition",
+		T = "go to type definition",
+		i = "go to implementation"
+	},
+})

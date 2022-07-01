@@ -72,6 +72,20 @@ local function plugins(use)
 
   -- lsp configs
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+
+
+	--nvim-cmp
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
+	use { 'saadparwaiz1/cmp_luasnip' }
+
+	-- luasnip
+	use { 
+				"L3MON4D3/LuaSnip",
+				config = function() require('user.snips') end,
+		}
+
 end
 
 packer_init()

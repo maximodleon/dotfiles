@@ -28,4 +28,5 @@ local function status_line()
 end
 
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.statusline = status_line()
