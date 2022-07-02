@@ -7,7 +7,6 @@ local rep = require("luasnip.extras").rep
 ls.config.set_config {
 	history = true,
 	updateevents = "TextChanged,TextChangedI"
-
 }
 
 ls.add_snippets(nil, {
