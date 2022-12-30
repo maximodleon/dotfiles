@@ -14,10 +14,10 @@ api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNotes { sort = { 'modified' }, ma
 api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
 
 -- Crear nota permanente
-api.nvim_set_keymap("n", "<leader>zp", "<Cmd>ZkNew { title = vim.fn.input('Title: '), dir='Notas Permanentes' }<CR>", opts)
+api.nvim_set_keymap("n", "<leader>zp", "<Cmd>ZkNew { title = ''), dir='Notas Permanentes' }<CR>", opts)
 -- Crear nota fugaz
-api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNew { title = vim.fn.input('Title: '), dir='Notas Fugaces' }<CR>", opts)
+api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNew { title = '', dir='Notas Fugaces' }<CR>", opts)
 -- Crear nota literaria
-api.nvim_set_keymap("n", "<leader>zl", "<Cmd>ZkNew { title = vim.fn.input('Title: '), dir='Notas Literarias' }<CR>", opts)
+api.nvim_set_keymap("n", "<leader>zl", "<Cmd>ZkNew { title = '', dir='Notas Literarias' }<CR>", opts)
 -- Crear nota referencia
-api.nvim_set_keymap("n", "<leader>zr", "<Cmd>ZkNew { title = vim.fn.input('Title: '), dir='Notas Referencias' }<CR>", opts)
+api.nvim_set_keymap("n", "<leader>zr", "<Cmd>ZkNew { title = '', dir='Notas Referencias' }<CR>", opts)
