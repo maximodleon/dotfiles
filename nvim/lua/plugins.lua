@@ -86,6 +86,9 @@ local function plugins(use)
 				config = function() require('user.snips') end,
 		}
 
+--vimwiki
+ use 'vimwiki/vimwiki'
+
 end
 
 packer_init()
