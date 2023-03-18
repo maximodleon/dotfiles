@@ -2,7 +2,6 @@ local M = {}
 
 function M.setup()
 	-- indicate first time installation
-	local packer_bootstrap = false
 
 	-- packer.nvim configuration
 	local conf = {
@@ -34,18 +33,17 @@ end
 local function plugins(use)
  -- nvim-dap (debug adapter protocol)
   use 'mfussenegger/nvim-dap'
-  -- neogit
-  use { 'TimUntersberger/neogit', requires= 'nvim-lua/plenary.nvim' }
 
-  use 'tpope/vim-fugitive'
-	use("mickael-menu/zk-nvim")
 	use('yuttie/comfortable-motion.vim')
+  use 'tpope/vim-fugitive'
 	use('tpope/vim-surround')
 	use('tpope/vim-repeat')
 	use('tpope/vim-commentary')
-	use('tpope/vim-projectionist')
-	use('tpope/vim-dispatch')
+	-- use('tpope/vim-projectionist')
+	-- use('tpope/vim-dispatch')
 	use('tpope/vim-endwise')
+	use('tpope/vim-rhubarb')
+	use('lewis6991/gitsigns.nvim')
 	use('phanviet/vim-monokai-pro')
 	use('cocopon/iceberg.vim')
 
@@ -54,6 +52,16 @@ local function plugins(use)
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
+ use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    -- NOTE: If you are having trouble with this installation,
+    --       refer to the README for telescope-fzf-native for more instructions.
+    build = 'make',
+    cond = function()
+      return vim.fn.executable 'make' == 1
+    end,
+  }
 
 	--Treesitter
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -64,15 +72,24 @@ local function plugins(use)
 	use "ryanoasis/vim-devicons"
 
   --which key
-	use { "folke/which-key.nvim", 
+	use { "folke/which-key.nvim",
 		config = function()
 				require("which-key").setup { }
 		end
-	}	
+	}
 
   -- lsp configs
-  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  use {
+		'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
+		requires = {
+				-- Automatically install LSPs to stdpath for neovim
+				'williamboman/mason.nvim',
+				'williamboman/mason-lspconfig.nvim',
 
+				-- Useful status updates for LSP
+				'j-hui/fidget.nvim'
+	 }
+}
 
 	--nvim-cmp
   use 'hrsh7th/nvim-cmp'
@@ -81,7 +98,7 @@ local function plugins(use)
 	use { 'saadparwaiz1/cmp_luasnip' }
 
 	-- luasnip
-	use { 
+	use {
 				"L3MON4D3/LuaSnip",
 				config = function() require('user.snips') end,
 		}
@@ -96,7 +113,6 @@ packer_init()
 local packer = require "packer"
 packer.init(conf)
 packer.startup(plugins)
-	
 end
 
 return M

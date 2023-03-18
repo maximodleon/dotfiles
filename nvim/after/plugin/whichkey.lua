@@ -3,32 +3,30 @@ local wk = require("which-key")
 wk.register({
 	f = {
 		name = "Telescope",
-		b = "Buscar buffer",
-		f = "Buscar archivo",
-		g = "Grep",
-		h = "Tags",
-		n = { "<cmd>enew<cr>", "Nuevo archivo" }
+		b = "[F] [B]uffer",
+		f = "[F]ind [F]ile",
+		g = "[F]ile [G]rep",
+		h = "[F]ind [T]ags",
+		-- n = { "<cmd>enew<cr>", "Nuevo archivo" }
 	},
 	g = {
 		name = "Git",
-		b = "Git blame",
-		c = "Git commit",
-		d = "Git diff",
-		l = "Git log",
-		p = "Git push",
-		r = "Git read",
-		s = "Git status",
-		w = "Git write"
+		b = "[G]it [B]lame",
+		c = "[G]it [C]ommit",
+		d = "[G]it [D]iff",
+		l = "[G]it [L]og",
+		p = "[G]it [P]ush",
+		r = "[G]it [R]ead",
+		s = "[G]it [S]tatus",
+		w = "[G]it [W]rite"
 	},
-	z = {
-		name = "zettlekasten",
-		f = "Nota fugaz",
-		l = "Nota literaria",
-		n = "Crear nota en directorio actual",
-		p = "Nota permanente",
-		o = "Buscar notas",
-		r = "Nota referencia",
-		t = "Buscar por tag"
+	w = {
+	 name = 'Vimwiki',
+	 w = 'Open defualt wiki index',
+	 t = 'Open default wiki index in tab',
+	 s = 'Select and open wiki index file',
+	 d = 'Delete current file',
+	 r = 'Rename current file'
 	},
 },  
 { prefix = "<leader>" })
@@ -36,8 +34,8 @@ wk.register({
 wk.register({
 	-- como hacer para que esto sea solo cuando hay un LS
 	g = {
-		d = "go to definition",
-		T = "go to type definition",
-		i = "go to implementation"
+		d = "[G]o to [D]efinition",
+		T = "[G]o to [T]ype Definition",
+		i = "[G]o to [I]mplementation"
 	},
 })
