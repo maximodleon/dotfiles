@@ -28,7 +28,9 @@ wk.register({
 	 d = 'Delete current file',
 	 r = 'Rename current file'
 	},
-	['/'] = 'Search in file'
+	['/'] = 'Search in file',
+	['b'] = 'Toggle breakpoint',
+	['B'] = 'Set breakpoint'
 },
 { prefix = "<leader>" })
 
@@ -39,4 +41,8 @@ wk.register({
 		T = "[G]o to [T]ype Definition",
 		i = "[G]o to [I]mplementation"
 	},
+	['<F5>'] = 'DAP continue',
+	['<F10>'] = 'DAP Step over',
+	['<F11>'] = 'DAP Step into',
+	['<F12>'] = 'DAP Step out'
 })
