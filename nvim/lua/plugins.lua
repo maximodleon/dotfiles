@@ -33,6 +33,14 @@ end
 local function plugins(use)
  -- nvim-dap (debug adapter protocol)
   use 'mfussenegger/nvim-dap'
+	use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+	use { "theHamsta/nvim-dap-virtual-text" }
+	use {
+		"microsoft/vscode-js-debug",
+		opt = true,
+		run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+	}
 
 	use('yuttie/comfortable-motion.vim')
   use 'tpope/vim-fugitive'
@@ -109,7 +117,7 @@ local function plugins(use)
 end
 
 packer_init()
-
+require("nvim-dap-virtual-text").setup()
 local packer = require "packer"
 packer.init(conf)
 packer.startup(plugins)

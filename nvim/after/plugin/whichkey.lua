@@ -28,7 +28,8 @@ wk.register({
 	 d = 'Delete current file',
 	 r = 'Rename current file'
 	},
-},  
+	['/'] = 'Search in file'
+},
 { prefix = "<leader>" })
 
 wk.register({

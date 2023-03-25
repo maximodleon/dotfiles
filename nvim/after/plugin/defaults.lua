@@ -5,7 +5,7 @@ vim.cmd('colorscheme iceberg')
 vim.cmd('filetype plugin on')
 
 
-g.mapleader = ","
+g.mapleader = " "
 opt.timeoutlen = 300
 
 
