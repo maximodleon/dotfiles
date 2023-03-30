@@ -5,13 +5,12 @@ if not status_ok then
 end
 
 configs.setup {
-	ensure_installed = { "javascript", "rust", "lua" },
-	sync_install = false,
-	ignore_install = { "" },
-	highlight = {
-		enable = true,
-		disable = { "" },
-		additonal_vim_regex_highlighting = true
-	},
-	indent = { enable = true, disable = { "yaml" } },
+  ensure_installed = { "help", "javascript", "rust", "lua" },
+  ignore_install = { "" },
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additonal_vim_regex_highlighting = false
+  },
+  indent = { enable = true, disable = { "yaml" } },
 }

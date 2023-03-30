@@ -53,7 +53,12 @@ local function plugins(use)
 	use('tpope/vim-rhubarb')
 	use('lewis6991/gitsigns.nvim')
 	use('phanviet/vim-monokai-pro')
-	use('cocopon/iceberg.vim')
+	-- use('cocopon/iceberg.vim')
+	use({ 'rose-pine/neovim', as = 'rose-pine',
+     config = function()
+	    vim.cmd('colorscheme rose-pine')
+		end
+ })
 
 
 	use {

@@ -1,7 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
-vim.cmd('colorscheme iceberg')
+--vim.cmd('colorscheme rose-pine')
 vim.cmd('filetype plugin on')
 
 
@@ -13,7 +13,9 @@ opt.timeoutlen = 300
 opt.tabstop=2
 opt.softtabstop=2
 opt.shiftwidth=2
--- set expandtab
+vim.cmd('set expandtab')
+--set expandtab
+--nvim_set_option("expandtab")
 
 -- UI config
 -- vim.opt.encoding="utf-8"
