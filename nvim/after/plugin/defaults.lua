@@ -40,10 +40,14 @@ opt.hlsearch = true
 opt.smartcase = true
 opt.ignorecase = true
 
-opt.foldenable = true
-opt.foldlevelstart=10
-opt.foldnestmax=10
-
+opt.foldlevel=20
+opt.foldmethod="expr"
+opt.foldexpr="nvim_treesitter#foldexpr()"
+--opt.foldenable = true
+--opt.foldlevelstart=10
+--opt.foldnestmax=10
+--opt.foldmethod=expr
+--opt.notfoldable=false
 -- vim.opt.nobackup = true
 -- vim.opt.nowritebackup = true
 -- vim.opt.noswapfile = true
@@ -55,3 +59,6 @@ opt.splitright = true
 
 opt.diffopt=vertical
 opt.completeopt=menu,menuone,preview,noselect,noinsert
+
+--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

@@ -122,11 +122,11 @@ local function plugins(use)
 end
 
 packer_init()
-require("nvim-dap-virtual-text").setup()
 local packer = require "packer"
 packer.init(conf)
 packer.startup(plugins)
 end
 
+--require("nvim-dap-virtual-text").setup()
 return M
 

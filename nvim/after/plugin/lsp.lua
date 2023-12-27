@@ -31,6 +31,14 @@ require ('lspconfig')['lua_ls'].setup {
 -- Configure Rust
 require ('lspconfig')['rust_analyzer'].setup {
 	capabilities = capabilities,
+	on_attach = on_attach,
+  cmd = { "rustup", "run", "stable", "rust-analyzer" }
+}
+
+-- Configure Go
+require ('lspconfig')['gopls'].setup {
+	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 

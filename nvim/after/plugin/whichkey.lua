@@ -26,7 +26,8 @@ wk.register({
 	 t = 'Open default wiki index in tab',
 	 s = 'Select and open wiki index file',
 	 d = 'Delete current file',
-	 r = 'Rename current file'
+	 r = 'Rename current file',
+   l = 'Toggle list item'
 	},
 	['/'] = 'Search in file',
 	['b'] = 'Toggle breakpoint',
