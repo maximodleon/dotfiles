@@ -27,7 +27,13 @@ wk.register({
 	 s = 'Select and open wiki index file',
 	 d = 'Delete current file',
 	 r = 'Rename current file',
-   l = 'Toggle list item'
+   l = 'Toggle list item',
+   D = {
+      i = 'Vimwiki diary [i]ndex',
+      n = 'Vimwiki make diary [n]ote',
+      t = 'Vimwiki make [t]omorrow diary note',
+      y = 'Vimwiki make [y]esterday diary note'
+   }
 	},
 	['/'] = 'Search in file',
 	['b'] = 'Toggle breakpoint',

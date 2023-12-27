@@ -29,6 +29,12 @@ keymap("n", "<leader>wr", ":VimwikiRenameFile<CR>", opts)
 keymap("n", "<leader>wT", ":VimwikiSearchTags", opts)
 keymap("n", "<leader>wl", ":VimwikiToggleListItem<CR>", opts)
 
+-- Vimwiki diary
+keymap("n", "<leader>wDi", ":VimwikiDiaryIndex<CR>", opts)
+keymap("n", "<leader>wDn", ":VimwikiMakeDiaryNote<CR>", opts)
+keymap("n", "<leader>wDt", ":VimwikiMakeTomorrowDiaryNote<CR>", opts)
+keymap("n", "<leader>wDy", ":VimwikiMakeYesterdayDiaryNote<CR>", opts)
+
 -- Need to call this after setting vimwiki variables
 vim.cmd(':call vimwiki#vars#init()')
 
