@@ -125,17 +125,8 @@ use({
     "nvim-lua/plenary.nvim",
 
     -- see below for full list of optional dependencies 👇
+     "hrsh7th/nvim-cmp"
   },
-  config = function()
-    require("obsidian").setup({
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/ovault/main-vault",
-        },
-      },
-    })
-  end,
 })
 
 end
