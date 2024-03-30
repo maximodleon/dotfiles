@@ -33,6 +33,7 @@ end
 local function plugins(use)
  -- nvim-dap (debug adapter protocol)
   use 'mfussenegger/nvim-dap'
+  use 'nvim-neotest/nvim-nio'
 	use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
 	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 	use { "theHamsta/nvim-dap-virtual-text" }
@@ -110,14 +111,32 @@ local function plugins(use)
   use 'hrsh7th/cmp-nvim-lsp'
 	use { 'saadparwaiz1/cmp_luasnip' }
 
-	-- luasnip
-	use {
-				"L3MON4D3/LuaSnip",
-				config = function() require('user.snips') end,
-		}
 
 --vimwiki
  use 'vimwiki/vimwiki'
+
+
+-- Obsidian
+use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  },
+  config = function()
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/ovault/main-vault",
+        },
+      },
+    })
+  end,
+})
 
 end
 
