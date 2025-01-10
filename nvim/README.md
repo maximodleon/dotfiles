@@ -1,6 +1,7 @@
 # Configuración de nvim
 
-Versión actual: 0.7.0
+Necesito version por lo menos 0.10.0 para que function nvim-treesitter
+Versión actual: 0.10.0
 
 # Dependencias
 

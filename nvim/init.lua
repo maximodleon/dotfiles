@@ -1,2 +1,4 @@
-require("plugins").setup()
-vim.api.nvim_set_var('backupcopy', 'yes')
+require("config.lazy")
+
+vim.opt.number = true
+vim.opt.relativenumber = true
