@@ -5,6 +5,7 @@ require('mason-lspconfig').setup( {
 	ensure_installed = { 'ts_ls' },
 	automatic_installation = true
 })
+require('mini.statusline').setup()
 
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
