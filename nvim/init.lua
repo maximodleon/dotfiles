@@ -20,3 +20,12 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+-- LSP
+require ('lspconfig')['ts_ls'].setup {}
+
+-- Configure lua ls
+require ('lspconfig')['lua_ls'].setup {}
+
+-- Configure Go
+require ('lspconfig')['gopls'].setup {}
