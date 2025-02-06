@@ -6,6 +6,13 @@ require('mason-lspconfig').setup( {
 	automatic_installation = true
 })
 require('mini.statusline').setup()
+local cmp = require('cmp')
+
+cmp.setup({
+	sources = cmp.config.sources({
+		{name = "nvim_lsp"}
+	})
+})
 
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
@@ -22,10 +29,20 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- LSP
-require ('lspconfig')['ts_ls'].setup {}
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require ('lspconfig')['ts_ls'].setup {
+	capabilities = capabilities
+}
 
 -- Configure lua ls
-require ('lspconfig')['lua_ls'].setup {}
+require ('lspconfig')['lua_ls'].setup {
+	capabilities = capabilities
+}
 
 -- Configure Go
-require ('lspconfig')['gopls'].setup {}
+require ('lspconfig')['gopls'].setup {
+	capabilities = capabilities
+}
+require ('lspconfig')['zls'].setup {
+	capabilities = capabilities
+}
