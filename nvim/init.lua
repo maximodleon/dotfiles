@@ -36,11 +36,11 @@ vim.opt.expandtab=true
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function(client, bufnr)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=bufnr, desc='[G]o to [D]efinition'})
-vim.keymap.set("n", "H", vim.lsp.buf.hover, {buffer=bufnr, desc='Hover'})
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer=bufnr, desc='[R]e[n]ame '})
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {buffer=bufnr, desc='Open diagnostics list'})
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer=bufnr, desc='Open floating diagnostics message'})
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=bufnr, desc='[G]o to [D]efinition'})
+  vim.keymap.set("n", "H", vim.lsp.buf.hover, {buffer=bufnr, desc='Hover'})
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer=bufnr, desc='[R]e[n]ame '})
+  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {buffer=bufnr, desc='Open diagnostics list'})
+  vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer=bufnr, desc='Open floating diagnostics message'})
 end
 
 require ('lspconfig')['ts_ls'].setup {
