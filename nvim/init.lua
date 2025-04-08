@@ -47,21 +47,35 @@ require ('lspconfig')['ts_ls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require ('lspconfig')['lua_ls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require ('lspconfig')['gopls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require ('lspconfig')['zls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require ('lspconfig')['clangd'].setup {
 	capabilities = capabilities,
-	on_attach = on_attach
+	on_attach = on_attach,
+  cmd = { "clangd", "--background-index" }, -- Optional flags for better performance
+  filetypes = { "c", "cpp" },
+ root_dir = function(fname)
+    return vim.fs.dirname(vim.fs.find({ "compile_commands.json", ".git" }, { upward = true })[1])
+  end,
+  settings = {
+    clangd = {
+      fallbackFlags = { "-I/opt/homebrew/include" }, -- Replace with your Raylib include path
+    },
+  },
 }
 
 require ('lspconfig')['denols'].setup {
