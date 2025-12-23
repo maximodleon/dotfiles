@@ -43,27 +43,29 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer=bufnr, desc='Open floating diagnostics message'})
 end
 
-require ('lspconfig')['ts_ls'].setup {
+local lspconfig = require('lspconfig')
+
+lspconfig['ts_ls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['lua_ls'].setup {
+lspconfig['lua_ls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['gopls'].setup {
+lspconfig['gopls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['zls'].setup {
+lspconfig['zls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['clangd'].setup {
+lspconfig['clangd'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach,
   cmd = { "clangd", "--background-index" }, -- Optional flags for better performance
@@ -78,17 +80,34 @@ require ('lspconfig')['clangd'].setup {
   },
 }
 
-require ('lspconfig')['denols'].setup {
+lspconfig['denols'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['elixirls'].setup {
+lspconfig['elixirls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
 
-require ('lspconfig')['ocamllsp'].setup {
+lspconfig['ocamllsp'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
+lspconfig['ruby_lsp'].setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+
+lspconfig['intelephense'].setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})

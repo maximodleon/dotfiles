@@ -7,7 +7,8 @@ export DENO_INSTALL="/Users/maximodeleon/.deno"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US-UTF-8
 export NODE_PATH=''
-export PATH="$PATH:/opt/homebrew/bin:$DENO_INSTALL/bin"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH:/opt/homebrew/bin:$DENO_INSTALL/bin:/opt/homebrew/opt/libpq/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME:$ANDROID_HOME/platform-tools"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -102,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias vi="nvim"
+alias love="/Applications/love.app/Contents/MacOS/love"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -125,3 +127,17 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # This section can be safely removed at any time if needed.
 [[ ! -r '/Users/maximodeleon/.opam/opam-init/init.zsh' ]] || source '/Users/maximodeleon/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+. "/Users/maximodeleon/.deno/env"
+eval "$(~/.local/bin/mise activate)"
+eval "$(rbenv init -)"
+export PATH="/Users/maximodeleon/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/maximodeleon/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/maximodeleon/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/maximodeleon/Library/Application Support/Herd/bin/":$PATH
