@@ -141,3 +141,6 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/maximodeleon/Library/Application Support
 
 # Herd injected PHP binary.
 export PATH="/Users/maximodeleon/Library/Application Support/Herd/bin/":$PATH
+
+# opencode
+export PATH=/Users/maximodeleon/.opencode/bin:$PATH

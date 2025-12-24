@@ -5,8 +5,14 @@ require('mason-lspconfig').setup( {
 	ensure_installed = { 'ts_ls' },
 	automatic_installation = true
 })
-require('mini.statusline').setup()
 local cmp = require('cmp')
+
+require('lualine').setup({
+  sections = {
+    lualine_x = { 'lsp_status' },
+    lualine_y = { 'filetype' },
+  }
+})
 
 cmp.setup({
 	sources = cmp.config.sources({
@@ -43,29 +49,29 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer=bufnr, desc='Open floating diagnostics message'})
 end
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
-lspconfig['ts_ls'].setup {
+vim.lsp.config('ts_ls', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['lua_ls'].setup {
+vim.lsp.config('lua_ls', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['gopls'].setup {
+vim.lsp.config('gopls', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['zls'].setup {
+vim.lsp.config('zls', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['clangd'].setup {
+vim.lsp.config('clangd',{
 	capabilities = capabilities,
 	on_attach = on_attach,
   cmd = { "clangd", "--background-index" }, -- Optional flags for better performance
@@ -78,32 +84,32 @@ lspconfig['clangd'].setup {
       fallbackFlags = { "-I/opt/homebrew/include" }, -- Replace with your Raylib include path
     },
   },
-}
+})
 
-lspconfig['denols'].setup {
+vim.lsp.config('denols', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['elixirls'].setup {
+vim.lsp.config('elixirls', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['ocamllsp'].setup {
+vim.lsp.config('ocamllsp',  {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['ruby_lsp'].setup {
+vim.lsp.config('ruby_lsp', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
-lspconfig['intelephense'].setup {
+vim.lsp.config('intelephense', {
 	capabilities = capabilities,
 	on_attach = on_attach
-}
+})
 
 vim.diagnostic.config({
   virtual_text = true,
