@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias vi="nvim"
 alias love="/Applications/love.app/Contents/MacOS/love"
+alias tmux-dev="tmux has-session -t dev 2>/de/null && tmux attach-seccion -t dev || (tmux new-session -A -s dev -d \; split-window -h -t  dev \; split-window -v -t dev \; select-pane -t 1 \; attach-session -t dev)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
