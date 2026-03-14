@@ -1,4 +1,3 @@
-
 ---
 name: plan-issue
 description: Read a github issue description and plan its implementation

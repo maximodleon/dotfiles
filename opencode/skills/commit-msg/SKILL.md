@@ -1,3 +1,10 @@
+---
+name: commit-msg
+description: Create a conventional commit message
+compatibility: opencode
+metadata:
+---
+
 ## Description
 Analyzes staged changes in a git repository and generates a standardized commit message following the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
