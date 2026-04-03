@@ -8,7 +8,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US-UTF-8
 export NODE_PATH=''
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH:/opt/homebrew/bin:$DENO_INSTALL/bin:/opt/homebrew/opt/libpq/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME:$ANDROID_HOME/platform-tools"
+export PATH="/Users/maximodleon/Library/Python/3.9/lib/python/site-packages:/opt/homebrew/opt/openjdk/bin:$PATH:/opt/homebrew/bin:$DENO_INSTALL/bin:/opt/homebrew/opt/libpq/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$ANDROID_HOME:$ANDROID_HOME/platform-tools"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -145,3 +145,7 @@ export PATH="/Users/maximodeleon/Library/Application Support/Herd/bin/":$PATH
 
 # opencode
 export PATH=/Users/maximodeleon/.opencode/bin:$PATH
+
+# Add JBang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
